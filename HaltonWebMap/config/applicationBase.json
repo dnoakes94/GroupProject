@@ -90,7 +90,7 @@
     "css",
     "noscroll"
   ],
-  "webMap": {
+  "appid": {
     "default": "297756936e8a467daad077cf8ab9808a",
     "fetch": true,
     "container": "mapViewDiv"
