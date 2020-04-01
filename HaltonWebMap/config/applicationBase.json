@@ -90,8 +90,8 @@
     "css",
     "noscroll"
   ],
-  "appid": {
-    "default": "297756936e8a467daad077cf8ab9808a",
+  "webmap": {
+    "default": "input id here",
     "fetch": true,
     "container": "mapViewDiv"
   },
