@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Conservation of Halton Flood Risk Map</title>
+  <title>ArcGIS JavaScript Tutorials: Create a Starter App</title>
   <style>
     html, body, #viewDiv {
       padding: 0;
@@ -30,17 +30,18 @@
         container: "viewDiv",
         map: map,
         center: [-79.877038, 43.516871],
-        zoom: 10
+        zoom: 13
       });
 
     });
-    // Buildings at Risk (polygons)
-      var buildingAtRiskLayer = new FeatureLayer({
-        url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Building_Flood_Zone_10m/FeatureServer/0"
+
+// Trailheads feature layer (points)
+var trailheadsLayer = new FeatureLayer({
+        url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Building_Flood_Zone_10m/FeatureServer/0?id=f9de6a4681fd4274b2685efa7a85752b"
       });
-      
-    map.add(buildingAtRiskLayer, 1);
-    
+
+      map.add(trailheadsLayer);
+
   </script>
 </head>
 <body>
