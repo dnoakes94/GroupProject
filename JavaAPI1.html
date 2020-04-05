@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
-  <title>Create web map from id</title>
+  <title>Conservation of Halton Flood Risk Map</title>
 
   <link rel="stylesheet" href="https://js.arcgis.com/3.31/dijit/themes/claro/claro.css">
   <link rel="stylesheet" href="https://js.arcgis.com/3.31/esri/css/esri.css">
@@ -22,6 +22,7 @@
       "esri/arcgis/utils",
       "esri/dijit/Legend",
       "esri/dijit/Scalebar",
+      "esri/dijit/Search",
       "dojo/domReady!"
     ], function (
       parser,
@@ -33,6 +34,7 @@
       urlUtils,
       arcgisUtils,
       Legend,
+      Search,
       Scalebar
     ) {
       ready(function () {
@@ -54,6 +56,13 @@
             scalebarUnit: "english"
           });
 
+          //add a search function
+          var search = new Search({
+            map: map
+          }, "search");
+          search.startup();
+        });
+
           //add the legend. Note that we use the utility method getLegendLayers to get
           //the layers to display in the legend from the createMap response.
           var legendLayers = arcgisUtils.getLegendLayers(response);
@@ -66,7 +75,6 @@
 
       });
 
-    });
 
   </script>
   <style>
@@ -115,6 +123,14 @@
       margin: 5px;
       padding: 0;
     }
+
+    #search {
+         display: block;
+         position: absolute;
+         z-index: 2;
+         top: 20px;
+         left: 74px;
+      }
 
   </style>
 </head>
