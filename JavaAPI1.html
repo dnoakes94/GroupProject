@@ -56,15 +56,6 @@
             scalebarUnit: "english"
           });
 
-          //add a search function
-          var searchBar = arcgisUtils.getLegendLayers(response);
-          var searchDijit = new Search({
-            map: map,
-            layerInfos: searchBar
-          }, "search");
-          searchDijit.startup();
-        });
-
           //add the legend. Note that we use the utility method getLegendLayers to get
           //the layers to display in the legend from the createMap response.
           var legendLayers = arcgisUtils.getLegendLayers(response);
@@ -75,8 +66,13 @@
           legendDijit.startup();
         });
       });
-
-
+          //add a search function
+          var search = new Search({
+            map: map
+         }, "search");
+         search.startup();
+         
+ });
   </script>
   <style>
     html,
