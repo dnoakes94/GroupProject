@@ -52,18 +52,17 @@
 
           var map = response.map;
           
-        //   var myWidget = new LayerList({
-        //     map: response.map,
-        //     layers: arcgisUtils.getLayerList(response)
-        //   },"layerList");
-        //   myWidget.startup();
-        // });
-
           //add the scalebar
           var scalebar = new Scalebar({
             map: map,
             scalebarUnit: "english"
         });
+    //   var myWidget = new LayerList({
+        //     map: response.map,
+        //     layers: arcgisUtils.getLayerList(response)
+        //   },"layerList");
+        //   myWidget.startup();
+        // });
 
           //add the legend. Use the utility method getLegendLayers to get
           //layers and display them in a legend from the createMap response.
