@@ -89,7 +89,7 @@ define(["require", "exports", "esri/WebMap", "esri/views/MapView", "esri/layers/
                 case 0:
                     map = new WebMap({
                         portalItem: {
-                            id: "da83595b291349b79c7e56e5fabc5fde"
+                            id: "8f949e51dfdb4e2db5487ee29a9d11bd"
                         }
                     });
                     view = new MapView({
