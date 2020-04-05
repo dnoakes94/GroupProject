@@ -51,7 +51,7 @@ define(["require", "exports", "dojo/_base/kernel", "esri/config", "esri/core/pro
         portal: {},
         rightToLeftLocales: ["ar", "he"],
         urlParams: [],
-        webMap: {"8f949e51dfdb4e2db5487ee29a9d11bd"},
+        webMap: {},
         webScene: {}
     };
     var ApplicationBase = /** @class */ (function () {
