@@ -23,6 +23,7 @@
       "esri/dijit/Legend",
       "esri/dijit/Scalebar",
       "esri/dijit/Search",
+      "esri/layout/LayerList",
       "dojo/domReady!"
     ], function (
       parser,
@@ -35,6 +36,7 @@
       arcgisUtils,
       Legend,
       Search,
+      LayerList,
       Scalebar
     ) {
       ready(function () {
@@ -49,15 +51,22 @@
           dom.byId("subtitle").innerHTML = response.itemInfo.item.snippet;
 
           var map = response.map;
+          
+        //   var myWidget = new LayerList({
+        //     map: response.map,
+        //     layers: arcgisUtils.getLayerList(response)
+        //   },"layerList");
+        //   myWidget.startup();
+        // });
 
           //add the scalebar
           var scalebar = new Scalebar({
             map: map,
             scalebarUnit: "english"
-          });
+        });
 
-          //add the legend. Note that we use the utility method getLegendLayers to get
-          //the layers to display in the legend from the createMap response.
+          //add the legend. Use the utility method getLegendLayers to get
+          //layers and display them in a legend from the createMap response.
           var legendLayers = arcgisUtils.getLegendLayers(response);
           var legendDijit = new Legend({
             map: map,
@@ -95,7 +104,7 @@
     #title {
       padding-top: 2px;
       padding-left: 10px;
-      font-size: 18pt;
+      font-size: 25pt;
       font-weight: 700;
     }
 
@@ -123,7 +132,7 @@
          left: 74px;
       }
     
-      #layerListPane{
+      /* #layerListPane{
     width:25%;
 }
 .esriLayer{
@@ -138,11 +147,18 @@
 }
 .esriLayerList .esriList ul{
   background-color: #fff;
-}
+} */
   </style>
 </head>
 
 <body class="claro">
+ 
+  <!-- <div class="container" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false">
+    <div id="layerListPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'">
+      <div id="layerList"></div>
+    </div>
+  </div> -->
+  
   <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'">
     <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
       <div id="title"></div>
@@ -156,4 +172,3 @@
 </body>
 
 </html>
- 
