@@ -20,21 +20,10 @@
       "esri/WebMap",
       "esri/views/MapView",
       "esri/widgets/Legend",
-      "esri/widgets/ScaleBar"
-    ], function(WebMap, MapView, Legend, ScaleBar) {
-      
-      var legend = new Legend({
-        view: view
-      });
-      
-      view.ui.add(legend, "top-right");
+      "esri/widgets/ScaleBar",
+      "esri/widgets/LayerList"
+    ], function(WebMap, MapView, Legend, ScaleBar, LayerList) {
 
-      var scalebar = new ScaleBar({
-        view: view
-      });
-      
-      view.ui.add(scalebar, "bottom-left");
-      
       var webmap = new WebMap({
         portalItem: {
           id: "8f949e51dfdb4e2db5487ee29a9d11bd"
@@ -49,10 +38,38 @@
         //zoom: 13
       });
 
+      var legend = new Legend({
+              view: view
+            });
+            
+            view.ui.add(legend, "top-right");
+
+            var scalebar = new ScaleBar({
+              view: view
+            });
+            
+            view.ui.add(scalebar, "bottom-left");
+    var layerList = new LayerList({
+      view: view
+    });
+    // Adds widget below other elements in the top left corner of the view
+    view.ui.add(layerList, {
+      position: "top-left"
+    });
+      const basemapGallery = new BasemapGallery({
+      view: view,
+      container: document.createElement("div")
+    });
+
+    // Add the widget to the top-right corner of the view
+    view.ui.add(basemapGallery, {
+      position: "top-right"
+    });
     });
   </script>
 </head>
 <body>
   <div id="viewDiv"></div>
+  
 </body>
 </html>
